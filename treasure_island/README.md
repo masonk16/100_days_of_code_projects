@@ -1,0 +1,1 @@
+Played around with logical operators and conditionals just to test my knowledge.
