@@ -1,4 +1,5 @@
-print('''
+print(
+    '''
 *******************************************************************************
           |                   |                  |                     |
  _________|________________.=""_;=.______________|_____________________|_______
@@ -19,26 +20,35 @@ ____/______/______/______/__"=._o--._   ;o|o;     _._;o;____/______/______/____
 ____/______/______/______/______/_____"=.o|o_.--""___/______/______/______/____
 /______/______/______/______/______/______/______/______/______/______/_____ /
 *******************************************************************************
-''')
+'''
+)
 print("Welcome to Treasure Island.")
-print("Your mission is to find the treasure.") 
+print("Your mission is to find the treasure.")
 
-#https://www.draw.io/?lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1&title=Treasure%20Island%20Conditional.drawio#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1oDe4ehjWZipYRsVfeAx2HyB7LCQ8_Fvi%26export%3Ddownload
+# https://www.draw.io/?lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1&title=Treasure%20Island%20Conditional.drawio#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1oDe4ehjWZipYRsVfeAx2HyB7LCQ8_Fvi%26export%3Ddownload
 
-#Write your code below this line 👇
-start = str(input("We need you to get to the othe side of the world. Which way do you turn? Type left or right\n").lower())
+# Write your code below this line 👇
+start = str(
+    input(
+        "We need you to get to the othe side of the world. Which way do you turn? Type left or right\n"
+    ).lower()
+)
 
 if start == "left":
-  lake = str(input("You get to a lake. what do you do? Type swim or wait").lower())
+    lake = str(input("You get to a lake. what do you do? Type swim or wait").lower())
 else:
-  print("Game over!")
+    print("Game over!")
 if lake == "wait":
-  door = str(input("You get to the other side and there are 3 doors. Which one do you pick? type blue, yellow or red").lower())
+    door = str(
+        input(
+            "You get to the other side and there are 3 doors. Which one do you pick? type blue, yellow or red"
+        ).lower()
+    )
 else:
-  print("Game over!")
+    print("Game over!")
 if door == "blue" or door == "red":
-  print("Game over!")
+    print("Game over!")
 elif door == "yellow":
-  print("You win!")
+    print("You win!")
 else:
-  print("Game over!")
+    print("Game over!")
