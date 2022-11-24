@@ -8,3 +8,4 @@ for question in question_data:
     new_question = Question(text=question_text, answer=question_answer)
     question_bank.append(new_question)
 
+QuizBrain(question_bank)
