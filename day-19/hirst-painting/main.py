@@ -1,16 +1,15 @@
-# This is a sample Python script.
+# import colorgram
+#
+#
+# colours = colorgram.extract('Ellipticine.png', 10)
+# rgb_colours = []
+# for colour in colours:
+#     r = colour.rgb.r
+#     g = colour.rgb.g
+#     b = colour.rgb.b
+#     new_colour = (r, g, b)
+#     rgb_colours.append(new_colour)
+#
+# print(rgb_colours)
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+colours_list = [(238, 236, 234), (230, 226, 228), (34, 108, 167), (223, 229, 235), (227, 233, 230), (245, 77, 36), (112, 163, 211), (153, 57, 85), (219, 156, 94), (201, 60, 27)]
