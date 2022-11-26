@@ -23,6 +23,7 @@ if user_bet:
 while race_on:
     for turtle in all_turtles:
         if turtle.xcor() > 230:
+            race_on = False
             winning_colour = turtle.pencolor()
             if winning_colour == user_bet:
                 print(f"You won! The winning colour was {winning_colour}.")
