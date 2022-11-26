@@ -1,4 +1,5 @@
 from turtle import Turtle, Screen
+import random
 
 race_on = False
 screen = Screen()
@@ -15,6 +16,11 @@ for turtle_index in range(0, 6):
 
 
 if user_bet:
+    race_on = True
+
+while race_on:
+    random_distance = random.randint(0, 15)
+    
 
 
 
