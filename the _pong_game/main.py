@@ -33,6 +33,11 @@ while play_game:
     if ball.distance(right_paddle) < 50 and ball.xcor() > 325 or ball.distance(left_paddle) < 50 and ball.xcor() < -325:
         ball.bounce_x()
 
+    if ball.xcor() > 380:
+        ball.center_ball()
+
+    if ball.xcor() < -380:
+        ball.center_ball()
 
 screen.exitonclick()
 
