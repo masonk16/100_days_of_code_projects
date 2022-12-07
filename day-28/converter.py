@@ -2,7 +2,8 @@ from tkinter import *
 
 
 def calculate():
-    my_label["text"] = input.get()
+    result = round(int(input.get()) * 1.6)
+    label_3.config(text=result)
 
 
 window = Tk()
