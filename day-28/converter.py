@@ -2,8 +2,8 @@ from tkinter import *
 
 
 def calculate():
-    result = round(int(input.get()) * 1.6)
-    label_3.config(text=result)
+    result = round(int(miles_input.get()) * 1.609)
+    result_label.config(text=result)
 
 
 window = Tk()
@@ -12,25 +12,25 @@ window.minsize(width=250, height=150)
 window.config(padx=20, pady=20)
 
 # Entry
-input = Entry(width=15)
-input.grid(column=3, row=2)
+miles_input = Entry(width=15)
+miles_input.grid(column=3, row=2)
 
 # Labels
-label_1 = Label(text="Miles", font=("Arial", 14, "italic"))
-label_1.grid(column=4, row=2)
-label_1.config(padx=10, pady=10)
+miles_label = Label(text="Miles", font=("Arial", 14, "italic"))
+miles_label.grid(column=4, row=2)
+miles_label.config(padx=10, pady=10)
 
-label_2 = Label(text="is equal to", font=("Arial", 14, "italic"))
-label_2.grid(column=2, row=3)
-label_2.config(padx=10, pady=10)
+equal_to_label = Label(text="is equal to", font=("Arial", 14, "italic"))
+equal_to_label.grid(column=2, row=3)
+equal_to_label.config(padx=10, pady=10)
 
-label_3 = Label(text="0", font=("Arial", 14, "italic"))
-label_3.grid(column=3, row=3)
-label_3.config(padx=10, pady=10)
+result_label = Label(text="0", font=("Arial", 14, "italic"))
+result_label.grid(column=3, row=3)
+result_label.config(padx=10, pady=10)
 
-label_4 = Label(text="Km", font=("Arial", 14, "italic"))
-label_4.grid(column=4, row=3)
-label_4.config(padx=10, pady=10)
+km_label = Label(text="Km", font=("Arial", 14, "italic"))
+km_label.grid(column=4, row=3)
+km_label.config(padx=10, pady=10)
 
 # Button
 button = Button(text="Calculate", command=calculate)
