@@ -24,11 +24,13 @@ def start_timer():
 
     if reps % 8 == 0:
         countdown(long_break)
-        reps = 0
+        title_label.config(text="Break", fg=RED)
     elif reps % 2 == 0:
-        countdown(short_break)  
+        countdown(short_break)
+        title_label.config(text="Break", fg=PINK)
     else:
         countdown(work)
+        title_label.config(text="Work", fg=GREEN)
 
 # ---------------------------- COUNTDOWN MECHANISM ------------------------------- # 
 
@@ -55,8 +57,8 @@ canvas.create_image(100, 112, image=domasi)
 timer_text = canvas.create_text(100, 130, text="00:00", fill="white", font=(FONT_NAME, 35, "bold"))
 canvas.grid(column=1, row=1)
 
-timer_label = Label(text="Timer", bg=YELLOW, fg=GREEN, font=(FONT_NAME, 40, "bold"))
-timer_label.grid(column=1, row=0)
+title_label = Label(text="Timer", bg=YELLOW, fg=GREEN, font=(FONT_NAME, 40, "bold"))
+title_label.grid(column=1, row=0)
 
 start_button = Button(text="Start", width=10, command=start_timer)
 start_button.grid(column=0, row=2)
