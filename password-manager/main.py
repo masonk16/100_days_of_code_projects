@@ -18,7 +18,7 @@ def generate_password():
 
     password = "".join(password_list)
 
-    print(f"Your password is: {password}")
+    password_input.insert(0, password)
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 
 def save():
@@ -80,7 +80,7 @@ password_label.grid(column=0, row=3)
 password_input = Entry(width=35)
 password_input.grid(column=1, row=3)
 
-gen_pass_button = Button(text="Generate Password")
+gen_pass_button = Button(text="Generate Password", command=generate_password)
 gen_pass_button.grid(column=2, row=3)
 
 add_pass_button = Button(text="Add Password", width=46, command=save)
