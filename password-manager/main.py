@@ -15,16 +15,19 @@ def save():
     email = email_input.get()
     password = password_input.get()
 
-    is_ok = messagebox.askokcancel(title=website, message=f"These are your password deatils:\n Email: {email}\n"
-                                                  f"Password: {password}\n Is it okay to save?")
+    if len(website) == 0 or len(password) == 0:
+        messagebox.showinfo(title="HAAAA Mdhara!", message="Hapana zvamanyora ka")
+    else:
+        is_ok = messagebox.askokcancel(title=website, message=f"These are your password deatils:\n Email: {email}\n"
+                                                      f"Password: {password}\n Is it okay to save?")
 
-    if is_ok:
+        if is_ok:
 
-        with open("svombonorodzenyu.txt", "a") as masvombonoro:
-            masvombonoro.write(f"{website} | {email} | {password}\n")
+            with open("svombonorodzenyu.txt", "a") as masvombonoro:
+                masvombonoro.write(f"{website} | {email} | {password}\n")
 
-        website_input.delete(0, "end")
-        password_input.delete(0, "end")
+            website_input.delete(0, "end")
+            password_input.delete(0, "end")
 
 # ---------------------------- UI SETUP ------------------------------- #
 
