@@ -1,4 +1,5 @@
 from tkinter import *
+from tkinter import messagebox
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
 
 # ---------------------------- SAVE PASSWORD ------------------------------- #
@@ -7,16 +8,23 @@ def save():
     """
     Saves the new password as a new line in the file when the Add Password button is clicked.
 
-    Clears all fields.
+    Clears website and password fields after button press.
     """
-    with open("svombonorodzenyu.txt", "a") as masvombonoro:
-        website = website_input.get()
-        email = email_input.get()
-        password = password_input.get()
-        masvombonoro.write(f"{website} | {email} | {password}\n")
 
-    website_input.delete(0, "end")
-    password_input.delete(0, "end")
+    website = website_input.get()
+    email = email_input.get()
+    password = password_input.get()
+
+    is_ok = messagebox.askokcancel(title=website, message=f"These are your password deatils:\n Email: {email}\n"
+                                                  f"Password: {password}\n Is it okay to save?")
+
+    if is_ok:
+
+        with open("svombonorodzenyu.txt", "a") as masvombonoro:
+            masvombonoro.write(f"{website} | {email} | {password}\n")
+
+        website_input.delete(0, "end")
+        password_input.delete(0, "end")
 
 # ---------------------------- UI SETUP ------------------------------- #
 
