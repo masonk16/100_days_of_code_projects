@@ -16,6 +16,7 @@ def save():
         masvombonoro.write(f"{website} | {email} | {password}\n")
 
     website_input.delete(0, "end")
+    password_input.delete(0, "end")
 
 # ---------------------------- UI SETUP ------------------------------- #
 
