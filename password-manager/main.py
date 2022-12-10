@@ -50,19 +50,24 @@ def save():
         #                                               f"Password: {password}\n Is it okay to save?")
         #
         # if is_ok:
+        try:
+            with open("svombonorodzenyu.json", "r") as masvombonoro:
+                # masvombonoro.write(f"{website} | {email} | {password}\n")
+                # Reading old data
+                data = json.load(masvombonoro)
 
-        with open("svombonorodzenyu.json", "r") as masvombonoro:
-            # masvombonoro.write(f"{website} | {email} | {password}\n")
-
-            # Reading old data
-            data = json.load(masvombonoro)
+        except FileNotFoundError:
+            with open("svombonorodzenyu.json", "w") as masvombonoro:
+                # Saving updated data
+                json.write(new_data, masvombonoro, indent=4)
+        else:
             # Updating old data with new data
             data.update(new_data)
-
-        with open("svombonorodzenyu.json", "w") as masvombonoro:
-            # Saving updated data
-            json.dump(data, masvombonoro, indent=4)
-
+            
+            with open("svombonorodzenyu.json", "w") as masvombonoro:
+                # Saving updated data
+                json.dump(new_data, masvombonoro, indent=4)
+        finally:
             website_input.delete(0, "end")
             password_input.delete(0, "end")
 
