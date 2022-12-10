@@ -51,12 +51,20 @@ def save():
         #
         # if is_ok:
 
-        with open("svombonorodzenyu.json", "w") as masvombonoro:
+        with open("svombonorodzenyu.json", "r") as masvombonoro:
             # masvombonoro.write(f"{website} | {email} | {password}\n")
-            json.dump(new_data, masvombonoro, indent=4)
 
-        website_input.delete(0, "end")
-        password_input.delete(0, "end")
+            # Reading old data
+            data = json.load(masvombonoro)
+            # Updating old data with new data
+            data.update(new_data)
+
+        with open("svombonorodzenyu.json", "w") as masvombonoro:
+            # Saving updated data
+            json.dump(data, masvombonoro, indent=4)
+
+            website_input.delete(0, "end")
+            password_input.delete(0, "end")
 
 # ---------------------------- UI SETUP ------------------------------- #
 

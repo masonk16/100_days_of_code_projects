@@ -1,6 +1,10 @@
 {
-    "Amazon": {
+    "website": {
+        "email": "email",
+        "password": "password"
+    },
+    "Shiri": {
         "email": "kudyausavi@gmail.com",
-        "password": "RAuh2#*SLyM59"
+        "password": "!UzKI87OJy5$+SE"
     }
 }
