@@ -73,12 +73,16 @@ def save():
 
 def find_password():
     website = website_input.get()
-    with open("svombonorodzenyu.json", "r") as masvombonoro:
-        svombonorodziripo = json.load(masvombonoro)
-        email = svombonorodziripo[website]["email"]
-        password = svombonorodziripo[website]["password"]
+    try:
+        with open("svombonorodzenyu.json", "r") as masvombonoro:
+            svombonorodziripo = json.load(masvombonoro)
+            email = svombonorodziripo[website]["email"]
+            password = svombonorodziripo[website]["password"]
+    except FileNotFoundError:
+        messagebox.showinfo(title="No data", message="No data in file.")
+    else:
         messagebox.showinfo(title=website, message=f"Email: {email}\n Password: {password}")
-        #print(website_details["email"])
+
 
 # ---------------------------- UI SETUP ------------------------------- #
 
