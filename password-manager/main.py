@@ -52,10 +52,8 @@ def save():
         # if is_ok:
         try:
             with open("svombonorodzenyu.json", "r") as masvombonoro:
-                # masvombonoro.write(f"{website} | {email} | {password}\n")
                 # Reading old data
                 data = json.load(masvombonoro)
-
         except FileNotFoundError:
             with open("svombonorodzenyu.json", "w") as masvombonoro:
                 # Saving updated data
@@ -63,10 +61,10 @@ def save():
         else:
             # Updating old data with new data
             data.update(new_data)
-            
+
             with open("svombonorodzenyu.json", "w") as masvombonoro:
                 # Saving updated data
-                json.dump(new_data, masvombonoro, indent=4)
+                json.dump(data, masvombonoro, indent=4)
         finally:
             website_input.delete(0, "end")
             password_input.delete(0, "end")
@@ -86,9 +84,13 @@ canvas.grid(column=1, row=0)
 website_label = Label(text="Website:", pady=10)
 website_label.grid(column=0, row=1)
 
-website_input = Entry(width=55)
+website_input = Entry(width=35)
 website_input.focus()
-website_input.grid(column=1, row=1, columnspan=2)
+website_input.grid(column=1, row=1)
+
+search_button = Button(text="Search", width=15)
+search_button.grid(column=2, row=1)
+
 
 # Email
 email_label = Label(text="Email/Username:", pady=10)
