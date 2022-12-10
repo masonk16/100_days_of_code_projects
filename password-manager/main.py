@@ -57,7 +57,7 @@ def save():
         except FileNotFoundError:
             with open("svombonorodzenyu.json", "w") as masvombonoro:
                 # Saving updated data
-                json.write(new_data, masvombonoro, indent=4)
+                json.dump(new_data, masvombonoro, indent=4)
         else:
             # Updating old data with new data
             data.update(new_data)
@@ -80,6 +80,8 @@ def find_password():
             password = svombonorodziripo[website]["password"]
     except FileNotFoundError:
         messagebox.showinfo(title="No data", message="No data in file.")
+    except KeyError:
+        messagebox.showinfo(title="No password", message="Password does not exist.")
     else:
         messagebox.showinfo(title=website, message=f"Email: {email}\n Password: {password}")
 
