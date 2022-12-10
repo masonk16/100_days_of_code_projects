@@ -69,6 +69,17 @@ def save():
             website_input.delete(0, "end")
             password_input.delete(0, "end")
 
+# ---------------------------- SEARCH BTN ------------------------------- #
+
+def find_password():
+    website = website_input.get()
+    with open("svombonorodzenyu.json", "r") as masvombonoro:
+        svombonorodziripo = json.load(masvombonoro)
+        email = svombonorodziripo[website]["email"]
+        password = svombonorodziripo[website]["password"]
+        messagebox.showinfo(title=website, message=f"Email: {email}\n Password: {password}")
+        #print(website_details["email"])
+
 # ---------------------------- UI SETUP ------------------------------- #
 
 window = Tk()
@@ -88,7 +99,7 @@ website_input = Entry(width=35)
 website_input.focus()
 website_input.grid(column=1, row=1)
 
-search_button = Button(text="Search", width=15)
+search_button = Button(text="Search", width=15, command=find_password)
 search_button.grid(column=2, row=1)
 
 
