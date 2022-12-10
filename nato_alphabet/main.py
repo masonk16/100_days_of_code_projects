@@ -18,5 +18,5 @@ def generate_phonetic():
     else:
         print(phonetic_words)
 
-        
+
 generate_phonetic()

@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter import messagebox
 from random import randint, shuffle, choice
 import pyperclip
+import json
 
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
 def generate_password():
@@ -35,20 +36,27 @@ def save():
     website = website_input.get()
     email = email_input.get()
     password = password_input.get()
+    new_data = {
+        website: {
+            "email": email,
+            "password": password,
+        }
+    }
 
     if len(website) == 0 or len(password) == 0:
         messagebox.showinfo(title="HAAAA Mdhara!", message="Hapana zvamanyora ka")
     else:
-        is_ok = messagebox.askokcancel(title=website, message=f"These are your password deatils:\n Email: {email}\n"
-                                                      f"Password: {password}\n Is it okay to save?")
+        # is_ok = messagebox.askokcancel(title=website, message=f"These are your password deatils:\n Email: {email}\n"
+        #                                               f"Password: {password}\n Is it okay to save?")
+        #
+        # if is_ok:
 
-        if is_ok:
+        with open("svombonorodzenyu.json", "w") as masvombonoro:
+            # masvombonoro.write(f"{website} | {email} | {password}\n")
+            json.dump(new_data, masvombonoro, indent=4)
 
-            with open("svombonorodzenyu.txt", "a") as masvombonoro:
-                masvombonoro.write(f"{website} | {email} | {password}\n")
-
-            website_input.delete(0, "end")
-            password_input.delete(0, "end")
+        website_input.delete(0, "end")
+        password_input.delete(0, "end")
 
 # ---------------------------- UI SETUP ------------------------------- #
 
