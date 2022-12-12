@@ -7,7 +7,7 @@ EMAIL = "mabasics175@gmail.com"
 PASSWORD = "wllaqeaotxnaitmu"
 
 # Obtain todays date
-today = (7, 2)
+today = (datetime.now().month, datetime.now().day)
 
 # Read csv into dataframe and create a dictionary
 birthdays_data = pandas.read_csv("birthdays.csv")
@@ -19,18 +19,18 @@ if today in birthdays_dict:
     birthday_person = birthdays_dict[today]
     with open(file, "r") as letter:
         contents = letter.read()
-        birthday_message = contents.replace("[NAME}", birthday_person["name"])
+        birthday_message = contents.replace("[NAME]", birthday_person["name"])
 
-with smtplib.SMTP("smtp.gmail.com", 587) as connection:
-    connection.starttls()
-    connection.login(EMAIL, PASSWORD)
+    with smtplib.SMTP("smtp.gmail.com", 587) as connection:
+        connection.starttls()
+        connection.login(EMAIL, PASSWORD)
 
-    # Send email with birthday_message as message body.
-    connection.sendmail(
-        from_addr=EMAIL,
-        to_addrs="grey.pafotisevheni@yahoo.com",
-        msg=f"Subject: Happy Birthday\n\n {birthday_message}"
-    )
+        # Send email with birthday_message as message body.
+        connection.sendmail(
+            from_addr=EMAIL,
+            to_addrs="grey.pafotisevheni@yahoo.com",
+            msg=f"Subject: Happy Birthday\n\n {birthday_message}"
+        )
 
 
 
