@@ -1,36 +1,25 @@
 import pandas
-import datetime as dt
+from datetime import datetime
 import random
 import smtplib
 
 EMAIL = "mabasics175@gmail.com"
 PASSWORD = "wllaqeaotxnaitmu"
 
-# 1. Update the birthdays.csv
+# Obtain todays date
+today = (7, 2)
 
-# 2. Check if today matches a birthday in the birthdays.csv
-# Read csv into dataframe
-birthdays = pandas.read_csv("birthdays.csv")
+# Read csv into dataframe and create a dictionary
+birthdays_data = pandas.read_csv("birthdays.csv")
+birthdays_dict = {(data_row["month"], data_row["day"]): data_row for (index, data_row) in birthdays_data.iterrows()}
 
-# Obtain date and check against birthdays
-now = dt.datetime.now()
-day = now.day
-month = now.month
-today = (month, day)
-
-
-
-letters = [
-    "letter_templates/letter_1.txt",
-    "letter_templates/letter_2.txt",
-    "letter_templates/letter_3.txt"
-]
-
-if birth_day is not None and birth_month is not None:
-    with open(random.choice(letters), "r") as letter:
+# Check if a birthday matches todays date
+if today in birthdays_dict:
+    file = f"letter_templates/letter_{random.randint(1,3)}.txt"
+    birthday_person = birthdays_dict[today]
+    with open(file, "r") as letter:
         contents = letter.read()
-        name =
-        birthday_message = contents.replace("[NAME}", name)
+        birthday_message = contents.replace("[NAME}", birthday_person["name"])
 
 with smtplib.SMTP("smtp.gmail.com", 587) as connection:
     connection.starttls()
