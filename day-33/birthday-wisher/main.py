@@ -3,7 +3,7 @@ from datetime import datetime
 import random
 import smtplib
 
-EMAIL = "mabasics175@gmail.com"
+EMAIL = "grey.pafotisevheni@yahoo.com"
 PASSWORD = "wllaqeaotxnaitmu"
 
 # Obtain todays date
@@ -21,7 +21,7 @@ if today in birthdays_dict:
         contents = letter.read()
         birthday_message = contents.replace("[NAME]", birthday_person["name"])
 
-    with smtplib.SMTP("smtp.gmail.com", 587) as connection:
+    with smtplib.SMTP("smtp.mail.yahoo.com", 587) as connection:
         connection.starttls()
         connection.login(EMAIL, PASSWORD)
 
