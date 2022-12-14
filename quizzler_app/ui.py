@@ -1,7 +1,6 @@
 from tkinter import *
 from quiz_brain import QuizBrain
 
-
 THEME_COLOR = "#375362"
 
 
@@ -29,11 +28,11 @@ class QuizInterface:
         self.canvas.grid(column=0, row=1, columnspan=2, pady=50)
 
         true_mark = PhotoImage(file="images/true.png")
-        self.true_btn = Button(image=true_mark, highlightthickness=0)
+        self.true_btn = Button(image=true_mark, highlightthickness=0, command=self.true_pressed)
         self.true_btn.grid(column=0, row=2)
 
         false_mark = PhotoImage(file="images/false.png")
-        self.false_btn = Button(image=false_mark, highlightthickness=0)
+        self.false_btn = Button(image=false_mark, highlightthickness=0, command=self.false_pressed)
         self.false_btn.grid(column=1, row=2)
 
         self.get_next_question()
@@ -41,5 +40,21 @@ class QuizInterface:
         self.window.mainloop()
 
     def get_next_question(self):
+        self.canvas.config(bg="white")
         q_text = self.quiz.next_question()
         self.canvas.itemconfig(self.question_text, text=q_text)
+
+    def true_pressed(self):
+        is_right = self.quiz.check_answer("True")
+        self.give_feedback(is_right)
+
+    def false_pressed(self):
+        is_right = self.quiz.check_answer("False")
+        self.give_feedback(is_right)
+
+    def give_feedback(self, is_right):
+        if is_right:
+            self.canvas.config(bg="green")
+        else:
+            self.canvas.config(bg="red")
+        self.window.after(1500, self.get_next_question)
