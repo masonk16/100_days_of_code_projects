@@ -52,6 +52,9 @@ update_config = {
     "quantity": "15"
 }
 
-response = requests.put(url=update_endpoint, json=update_config, headers=headers)
+# response = requests.put(url=update_endpoint, json=update_config, headers=headers)
+# print(response.text)
+
+response = requests.delete(url=update_endpoint, headers=headers)
 print(response.text)
 
