@@ -1,8 +1,10 @@
 import requests
 import os
+from datetime import datetime
 
 USERNAME = "masonmapfunde"
-TOKEN = "f3DT!92G^BAshcqSCGYg#FoBdjeXjQ$Yr3"
+TOKEN = os.environ.get("TOKEN")
+GRAPH_ID = "codinggraph1"
 
 pixela_endpoint = "https://pixe.la/v1/users"
 user_params = {
@@ -29,10 +31,12 @@ headers = {
 # response = requests.post(url=graph_endpoint, json=graph_config, headers=headers)
 # print(response.text)
 
-graph_id = "codinggraph1"
-rec_info_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/{graph_id}"
+rec_info_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/{GRAPH_ID}"
+
+today = datetime.now()
+
 info_config = {
-    "date": "20221218",
+    "date": today.strftime("%Y%m%d"),
     "quantity": "5"
 }
 
