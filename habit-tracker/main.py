@@ -2,7 +2,7 @@ import requests
 import os
 
 USERNAME = "masonmapfunde"
-TOKEN = os.environ.get("TOKEN")
+TOKEN = "f3DT!92G^BAshcqSCGYg#FoBdjeXjQ$Yr3"
 
 pixela_endpoint = "https://pixe.la/v1/users"
 user_params = {
@@ -26,6 +26,15 @@ graph_config = {
 headers = {
     "X-USER-TOKEN": TOKEN
 }
-response = requests.post(url=graph_endpoint, json=graph_config, headers=headers)
-print(response.text)
+# response = requests.post(url=graph_endpoint, json=graph_config, headers=headers)
+# print(response.text)
 
+graph_id = "codinggraph1"
+rec_info_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/{graph_id}"
+info_config = {
+    "date": "20221218",
+    "quantity": "5"
+}
+
+response = requests.post(url=rec_info_endpoint, json=info_config, headers=headers)
+print(response.text)
