@@ -37,8 +37,21 @@ today = datetime.now()
 
 info_config = {
     "date": today.strftime("%Y%m%d"),
-    "quantity": "5"
+    "quantity": "20"
 }
 
-response = requests.post(url=rec_info_endpoint, json=info_config, headers=headers)
+# response = requests.post(url=rec_info_endpoint, json=info_config, headers=headers)
+# print(response.text)
+
+date = datetime(year=2022, month=12, day=17)
+update_date = date.strftime("%Y%m%d")
+
+update_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/{GRAPH_ID}/{update_date}"
+
+update_config = {
+    "quantity": "15"
+}
+
+response = requests.put(url=update_endpoint, json=update_config, headers=headers)
 print(response.text)
+
