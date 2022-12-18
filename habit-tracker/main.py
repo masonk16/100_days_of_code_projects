@@ -37,7 +37,7 @@ today = datetime.now()
 
 info_config = {
     "date": today.strftime("%Y%m%d"),
-    "quantity": "20"
+    "quantity": input("How many commits did you make today?: ")
 }
 
 # response = requests.post(url=rec_info_endpoint, json=info_config, headers=headers)
