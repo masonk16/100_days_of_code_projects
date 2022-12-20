@@ -1,7 +1,10 @@
 import requests
 from pprint import pprint
 
-SHEETY_PRICES_ENDPOINT = "https://api.sheety.co/5a2e01fafcc55f932af52f3e9867cb60/flightDeals/prices"
+SHEETY_PRICES_ENDPOINT = (
+    "https://api.sheety.co/5a2e01fafcc55f932af52f3e9867cb60/flightDeals/prices"
+)
+
 
 class DataManager:
     """
@@ -19,13 +22,8 @@ class DataManager:
 
     def update_destination_codes(self):
         for city in self.destination_data:
-            new_data = {
-                "price": {
-                    "iataCode": city["iataCode"]
-                }
-            }
+            new_data = {"price": {"iataCode": city["iataCode"]}}
             response = requests.put(
-                url=f"{SHEETY_PRICES_ENDPOINT}/{city['id']}",
-                json=new_data
+                url=f"{SHEETY_PRICES_ENDPOINT}/{city['id']}", json=new_data
             )
             print(response.text)
