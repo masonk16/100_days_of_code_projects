@@ -16,3 +16,6 @@ heading = soup.find(name="h1", id="name")
 
 h3_heading = soup.find_all("h3", class_="heading")
 print(h3_heading)
+
+company_url = soup.select_one(selector="p a")
+print(company_url)
