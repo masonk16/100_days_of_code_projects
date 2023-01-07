@@ -9,7 +9,11 @@ response = requests.get(billboard_url)
 songs_html = response.text
 
 soup = BeautifulSoup(songs_html, "html.parser")
-song_title = soup.select_one(selector="h3 a").getText()
-song_artist = soup.find(name="span", class_="a-no-trucate").getText()
-print(song_title)
-print(song_artist)
+song_title_tags = soup.find_all("h3", class_="a-no-trucate")
+# song_artist = soup.find(name="span", class_="a-no-trucate").getText()
+
+song_titles = [" ".join(song.getText().split()) for song in song_title_tags]
+
+
+print(song_titles)
+# print(song_artist)
