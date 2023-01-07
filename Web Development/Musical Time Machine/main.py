@@ -1,5 +1,12 @@
 from bs4 import BeautifulSoup
 import requests
+import os
+from dotenv import load_dotenv
+
+SPOTIFY_CLIENT_ID = os.environ.get('SPOTIFY_CLIENT_SECRET')
+SPOTIFY_CLIENT_SECRET = os.environ.get('spotify_client_secret')
+
+load_dotenv()
 
 date = input("Which date would you like to travel to? YYYY-MM-DD: ")
 
