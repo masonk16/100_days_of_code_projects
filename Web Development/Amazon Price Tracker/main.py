@@ -1,9 +1,17 @@
+import os
+
 import requests
 import lxml
 from bs4 import BeautifulSoup
 import smtplib
+import os
+from dotenv import load_dotenv
 
+load_dotenv()
 
+EMAIL = os.getenv('EMAIL')
+PASSWORD = os.getenv('PASSWORD')
+RECEIVER = os.getenv('RECEIVER')
 TARGET_PRICE = 405.00
 
 
@@ -27,4 +35,14 @@ title = (soup.select_one(selector="h1 span", id="title").getText()).strip()
 print(title)
 
 # Check if current price is below target price
-# if current_price <= TARGET_PRICE:
+if current_price <= TARGET_PRICE:
+    message = f"{title} is now {current_price}"
+
+    with smtplib.SMTP("smtp.gmail.com", 587) as connection:
+        connection.starttls()
+        result = connection.login(EMAIL, PASSWORD)
+        connection.sendmail(
+            from_addr=EMAIL,
+            to_addrs=RECEIVER,
+            msg=f"Subject:Price Alert! \n\n {message} \n {url}"
+        )
