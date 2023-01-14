@@ -14,18 +14,8 @@ chrome_options.add_experimental_option("detach", True)
 CHROME_DRIVER_PATH = os.getenv('CHROME_DRIVER_PATH')
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
 
-driver.get("https://www.python.org/")
-# price = driver.find_element(By.CLASS_NAME, "a-offscreen").text
-event_times = driver.find_elements(By.CSS_SELECTOR, '.event-widget ul li time')
-event_names = driver.find_elements(By.CSS_SELECTOR, '.event-widget ul li a')
-events = {}
+driver.get("https://en.wikipedia.org/wiki/Main_Page")
+article_count = driver.find_element(By.CSS_SELECTOR, "#articlecount a")
 
-for n in range(len(event_times)):
-    events[n] = {
-        'time': event_times[n].text,
-        'name': event_names[n].text
-    }
-
-
-
-print(events)
+search = driver.find_element(By.NAME, "search")
+search.send_keys("Python ")
