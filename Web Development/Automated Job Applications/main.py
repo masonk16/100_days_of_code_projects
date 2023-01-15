@@ -32,3 +32,12 @@ email_field.send_keys(ACCOUNT_EMAIL)
 password_field = driver.find_element(By.ID, "password")
 password_field.send_keys(ACCOUNT_PASSWORD)
 password_field.send_keys(Keys.ENTER)
+
+# Save all the jobs
+all_jobs = driver.find_elements(By.CSS_SELECTOR, ".job-card-container--clickable")
+for job in all_jobs:
+    driver.execute_script("arguments[0].click();", job)
+    time.sleep(5)
+    # Save job
+    save_btn = driver.find_element(By.CLASS_NAME, "jobs-save-button")
+    driver.execute_script("arguments[0].click();", save_btn)
