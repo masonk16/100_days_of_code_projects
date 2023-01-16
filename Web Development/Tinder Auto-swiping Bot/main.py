@@ -10,8 +10,8 @@ from webdriver_manager.chrome import ChromeDriverManager
 
 load_dotenv()
 
-ACCOUNT_EMAIL = os.getenv('ACCOUNT_EMAIL')
-ACCOUNT_PASSWORD = os.getenv('ACCOUNT_PASSWORD')
+PHONE_NUMBER = os.getenv('PHONE_NUMBER')
+PASSWORD = os.getenv('PASSWORD')
 
 chrome_options = Options()
 chrome_options.add_experimental_option("detach", True)
@@ -29,7 +29,25 @@ time.sleep(3)
 login_btn = driver.find_element(By.LINK_TEXT, "Log in")
 login_btn.click()
 
-time.sleep(10)
+time.sleep(5)
 
 facebook_btn = driver.find_element(By.XPATH, '//*[@id="c-1480665743"]/main/div/div[1]/div/div/div[3]/span/div[2]/button')
 facebook_btn.click()
+
+time.sleep(2)
+
+base_window = driver.window_handles[0]
+fb_login_window = driver.window_handles[1]
+driver.switch_to.window(fb_login_window)
+print(driver.title)
+
+time.sleep(3)
+
+phone_num = driver.find_element(By.XPATH, '//*[@id="email"]')
+phone_num.send_keys(PHONE_NUMBER)
+password = driver.find_element(By.NAME, "pass")
+password.send_keys(PASSWORD)
+
+fb_login = driver.find_element(By.NAME, "login")
+fb_login.click()
+
