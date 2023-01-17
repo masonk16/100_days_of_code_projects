@@ -61,7 +61,21 @@ password.send_keys(Keys.ENTER)
 # fb_login = driver.find_element(By.NAME, "login")
 # fb_login.click()
 
-time.sleep(30)
+time.sleep(10)
 
+driver.switch_to.window(base_window)
+print(driver.title)
+
+#Allow location
+allow_location_button = driver.find_element_by_xpath(By.XPATH, '//*[@id="modal-manager"]/div/div/div/div/div[3]/button[1]')
+allow_location_button.click()
+
+#Disallow notifications
+notifications_button = driver.find_element_by_xpath('//*[@id="modal-manager"]/div/div/div/div/div[3]/button[2]')
+notifications_button.click()
+
+#Allow cookies
+cookies = driver.find_element_by_xpath('//*[@id="content"]/div/div[2]/div/div/div[1]/button')
+cookies.click()
 
 
