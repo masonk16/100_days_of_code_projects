@@ -1,7 +1,7 @@
 import os
 import time
 from dotenv import load_dotenv
-from selenium import webdriver
+import undetected_chromedriver as webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
@@ -15,11 +15,12 @@ load_dotenv()
 EMAIL = os.getenv('EMAIL')
 PASSWORD = os.getenv('PASSWORD')
 
-chrome_options = Options()
-chrome_options.add_experimental_option("detach", True)
+# chrome_options = webdriver.ChromeOptions()
+# chrome_options.add_experimental_option("detach", True)
+# chrome_options.add_argument("--enable-automation")
 
 CHROME_DRIVER_PATH = os.getenv('CHROME_DRIVER_PATH')
-driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
+driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 
 driver.get("https://tinder.com/")
 
@@ -53,13 +54,14 @@ email.send_keys(Keys.ENTER)
 
 time.sleep(3)
 
-password = driver.find_element(By.NAME, "password")
+password = driver.find_element(By.NAME, "Passwd")
 password.send_keys(PASSWORD)
+password.send_keys(Keys.ENTER)
+#
+# fb_login = driver.find_element(By.NAME, "login")
+# fb_login.click()
 
-fb_login = driver.find_element(By.NAME, "login")
-fb_login.click()
-
-time.sleep(10)
+time.sleep(30)
 
 
 
