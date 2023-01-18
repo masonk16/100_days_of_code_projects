@@ -68,11 +68,12 @@ class InternetSpeedTwitterBot:
         time.sleep(5)
         tweet_box = self.driver.find_element(By.CLASS_NAME, 'public-DraftStyleDefault-block')
         tweet_box.click()
-
         message = f"Hey Internet Provider, why is my internet speed {self.down} down/{self.up} up, when I pay " \
                   f"for {PROMISED_DOWN} down/{PROMISED_UP} up?"
-
         tweet_box.send_keys(message)
+
+        tweet_btn = self.driver.find_element(By.XPATH, '//*[@id="react-root"]/div/div/div[2]/main/div/div/div/div[1]/div/div[3]/div/div[2]/div[1]/div/div/div/div[2]/div[3]/div/div/div[2]/div[3]')
+        tweet_btn.click()
 
 
 
