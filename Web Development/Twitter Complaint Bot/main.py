@@ -55,10 +55,19 @@ class InternetSpeedTwitterBot:
         email_field.send_keys(TWITTER_EMAIL)
         email_field.send_keys(Keys.ENTER)
 
+        time.sleep(3)
+        username_field = self.driver.find_element(By.NAME, 'text')
+        username_field.send_keys('ChiComplaintB')
+        username_field.send_keys(Keys.ENTER)
+
         time.sleep(2)
         password_field = self.driver.find_element(By.NAME, 'password')
         password_field.send_keys(TWITTER_PASSWORD)
         password_field.send_keys(Keys.ENTER)
+
+        time.sleep(5)
+        tweet_box = self.driver.find_element(By.CLASS_NAME, 'public-DraftStyleDefault-block')
+        tweet_box.click()
 
 
 bot = InternetSpeedTwitterBot()
