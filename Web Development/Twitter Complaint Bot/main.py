@@ -36,12 +36,11 @@ class InternetSpeedTwitterBot:
         go_btn = self.driver.find_element(By.CSS_SELECTOR, ".start-button a")
         go_btn.click()
 
-        time.sleep(90)
+        time.sleep(60)
         self.down = self.driver.find_element(By.CLASS_NAME, "download-speed").text
         print(f"Download: {self.down}")
         self.up = self.driver.find_element(By.CLASS_NAME, "upload-speed").text
         print(f"Upload: {self.up}")
-
 
     def tweet_at_provider(self):
         self.driver.get("https://www.twitter.com")
@@ -76,7 +75,6 @@ class InternetSpeedTwitterBot:
         tweet_btn.click()
 
 
-
 bot = InternetSpeedTwitterBot()
-# bot.get_internet_speed()
+bot.get_internet_speed()
 bot.tweet_at_provider()
