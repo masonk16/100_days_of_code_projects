@@ -69,6 +69,12 @@ class InternetSpeedTwitterBot:
         tweet_box = self.driver.find_element(By.CLASS_NAME, 'public-DraftStyleDefault-block')
         tweet_box.click()
 
+        message = f"Hey Internet Provider, why is my internet speed {self.down} down/{self.up} up, when I pay " \
+                  f"for {PROMISED_DOWN} down/{PROMISED_UP} up?"
+
+        tweet_box.send_keys(message)
+
+
 
 bot = InternetSpeedTwitterBot()
 # bot.get_internet_speed()
