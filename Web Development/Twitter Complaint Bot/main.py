@@ -20,3 +20,21 @@ chrome_options = Options()
 chrome_options.add_experimental_option("detach", True)
 
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
+
+
+class InternetSpeedTwitterBot:
+    def __init__(self):
+        self.driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
+        self.up = 0
+        self.down = 0
+
+    def get_internet_speed(self):
+        pass
+
+    def tweet_at_provider(self):
+        pass
+
+
+bot = InternetSpeedTwitterBot()
+bot.get_internet_speed()
+bot.tweet_at_provider()
