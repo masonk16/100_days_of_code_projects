@@ -10,8 +10,9 @@ from webdriver_manager.chrome import ChromeDriverManager
 
 load_dotenv()
 
-PROMISED_UP = 10
 PROMISED_DOWN = 150
+PROMISED_UP = 10
+
 TWITTER_EMAIL = os.getenv('TWITTER_EMAIL')
 TWITTER_PASSWORD = os.getenv('TWITTER_PASSWORD')
 CHROME_DRIVER_PATH = os.getenv('CHROME_DRIVER_PATH')
@@ -36,15 +37,25 @@ class InternetSpeedTwitterBot:
         go_btn.click()
 
         time.sleep(90)
-        self.up = self.driver.find_element(By.CLASS_NAME, "upload-speed").text
-        print(self.up)
         self.down = self.driver.find_element(By.CLASS_NAME, "download-speed").text
-        print(self.down)
+        print(f"Download: {self.down}")
+        self.up = self.driver.find_element(By.CLASS_NAME, "upload-speed").text
+        print(f"Upload: {self.up}")
+
 
     def tweet_at_provider(self):
-        pass
+        self.driver.get("https://www.twitter.com")
+
+        time.sleep(5)
+        login_btn = self.driver.find_element(By.XPATH, '//*[@id="layers"]/div/div[1]/div/div/div/div[2]/div[2]/div/div/div[1]/a')
+        login_btn.click()
+
+        time.sleep(3)
+        email_field = self.driver.find_element(By.NAME, 'text')
+        email_field.send_keys(TWITTER_EMAIL)
+        email_field.send_keys(Keys.ENTER)
 
 
 bot = InternetSpeedTwitterBot()
-bot.get_internet_speed()
-# bot.tweet_at_provider()
+# bot.get_internet_speed()
+bot.tweet_at_provider()
