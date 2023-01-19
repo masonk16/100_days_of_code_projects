@@ -40,6 +40,10 @@ class InstaFollower:
         time.sleep(3)
         self.driver.get(f"https://www.instagram.com/{SIMILAR_ACC}")
 
+        time.sleep(2)
+        followers_tag = self.driver.find_element(By.CSS_SELECTOR, 'div ul li a')
+        followers_tag.click()
+
     def follow(self):
         pass
 
