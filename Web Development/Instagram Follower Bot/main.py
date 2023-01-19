@@ -27,3 +27,6 @@ class InstaFollower:
     def login(self):
         pass
 
+    def find_followers(self):
+        pass
+
