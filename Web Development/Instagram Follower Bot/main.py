@@ -12,7 +12,7 @@ load_dotenv()
 
 SIMILAR_ACC ='w211_army'
 
-USERNAME = os.getenv('USERNAME')
+IG_USERNAME = os.getenv('IG_USERNAME')
 PASSWORD = os.getenv('PASSWORD')
 CHROME_DRIVER_PATH = os.getenv('CHROME_DRIVER_PATH')
 
@@ -25,10 +25,24 @@ class InstaFollower:
         self.driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
 
     def login(self):
-        pass
+        self.driver.get("https://www.instagram.com/accounts/login/")
+
+        time.sleep(3)
+        username = self.driver.find_element(By.NAME, 'username')
+        username.send_keys(IG_USERNAME)
+        password = self.driver.find_element(By.NAME, 'password')
+        password.send_keys(PASSWORD)
+        password.send_keys(Keys.ENTER)
+
 
     def find_followers(self):
         pass
 
     def follow(self):
         pass
+
+
+bot = InstaFollower()
+bot.login()
+bot.find_followers()
+bot.follow()
