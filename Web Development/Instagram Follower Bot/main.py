@@ -30,3 +30,5 @@ class InstaFollower:
     def find_followers(self):
         pass
 
+    def follow(self):
+        pass
