@@ -10,8 +10,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 
 load_dotenv()
 
-PROMISED_DOWN = 150
-PROMISED_UP = 10
+SIMILAR_ACC ='w211_army'
 
 USERNAME = os.getenv('USERNAME')
 PASSWORD = os.getenv('PASSWORD')
@@ -19,3 +18,9 @@ CHROME_DRIVER_PATH = os.getenv('CHROME_DRIVER_PATH')
 
 chrome_options = Options()
 chrome_options.add_experimental_option("detach", True)
+
+class InstaFollower:
+
+    def __init__(self):
+        self.driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
+
