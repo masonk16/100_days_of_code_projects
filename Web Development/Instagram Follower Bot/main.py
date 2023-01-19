@@ -2,6 +2,7 @@ import os
 import time
 from dotenv import load_dotenv
 from selenium import webdriver
+from selenium.common import ElementClickInterceptedException
 from selenium.webdriver import ActionChains
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
@@ -60,7 +61,14 @@ class InstaFollower:
             time.sleep(2)
 
     def follow(self):
-        pass
+        all_buttons = self.driver.find_elements(By.CSS_SELECTOR, "li button")
+        for button in all_buttons:
+            try:
+                button.click()
+                time.sleep(1)
+            except ElementClickInterceptedException:
+                cancel_button = self.driver.find_element(By.XPATH, '/html/body/div[5]/div/div/div/div[3]/button[2]')
+                cancel_button.click()
 
 
 bot = InstaFollower()
