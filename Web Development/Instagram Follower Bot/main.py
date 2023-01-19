@@ -24,3 +24,6 @@ class InstaFollower:
     def __init__(self):
         self.driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
 
+    def login(self):
+        pass
+
