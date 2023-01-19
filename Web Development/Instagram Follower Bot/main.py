@@ -2,6 +2,7 @@ import os
 import time
 from dotenv import load_dotenv
 from selenium import webdriver
+from selenium.webdriver import ActionChains
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
@@ -43,6 +44,20 @@ class InstaFollower:
         time.sleep(2)
         followers_tag = self.driver.find_element(By.CSS_SELECTOR, 'div ul li a')
         followers_tag.click()
+
+        time.sleep(5)
+        modal_root = self.driver.find_element(By.ID, 'ssrb_root_start')
+        self.driver.execute_script("arguments[0].style.display='block';", modal_root)
+        modal_end = self.driver.find_element(By.ID, 'ssrb_root_end')
+        self.driver.execute_script("arguments[0].style.display='block';", modal_end)
+        modal = self.driver.find_element(By.XPATH, '//*[@id="mount_0_0_Lj"]/div/div/div/div[2]/div/div/div[1]/div/div[2]/div/div/div/div/div[2]')
+        for i in range(10):
+            # In this case we're executing some Javascript, that's what the execute_script() method does.
+            # The method can accept the script as well as a HTML element.
+            # The modal in this case, becomes the arguments[0] in the script.
+            # Then we're using Javascript to say: "scroll the top of the modal (popup) element by the height of the modal (popup)"
+            self.driver.execute_script("arguments[0].scrollTop = arguments[0].scrollHeight", modal)
+            time.sleep(2)
 
     def follow(self):
         pass
