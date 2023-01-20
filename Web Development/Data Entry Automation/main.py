@@ -41,9 +41,29 @@ all_addresses = [address.get_text().split(" | ")[-1] for address in all_address_
 all_price_tags = soup.find_all(attrs={'data-test': 'property-card-price'})
 all_prices = [price.get_text().split("+")[0] for price in all_price_tags]
 
-
 # Create Spreadsheet using Google Form
 CHROME_DRIVER_PATH = os.getenv('CHROME_DRIVER_PATH')
 chrome_options = Options()
 chrome_options.add_experimental_option("detach", True)
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
+
+for n in range(len(all_links)):
+    # Substitute your own Google Form URL here 👇
+    driver.get("https://forms.gle/SLmt7UQCqMBAyUK47")
+
+    time.sleep(2)
+    address = driver.find_element(
+        By.XPATH, '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[1]/div/div/div[2]/div/div[1]/div/div[1]/input'
+    )
+    price = driver.find_element(
+        By.XPATH, '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[2]/div/div/div[2]/div/div[1]/div/div[1]/input'
+    )
+    link = driver.find_element(
+        By.XPATH, '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[3]/div/div/div[2]/div/div[1]/div/div[1]/input'
+    )
+    submit_button = driver.find_element(By.XPATH, '//*[@id="mG61Hd"]/div[2]/div/div[3]/div[1]/div[1]/div/span/span')
+
+    address.send_keys(all_addresses[n])
+    price.send_keys(all_prices[n])
+    link.send_keys(all_links[n])
+    submit_button.click()
