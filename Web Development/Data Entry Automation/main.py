@@ -35,6 +35,9 @@ for link in all_link_tags:
     else:
         all_links.append(href)
 
+all_address_tags = soup.select(".property-card-link address")
+all_addresses = [address.get_text().split(" | ")[-1] for address in all_address_tags]
+
 
 # Create Spreadsheet using Google Form
 CHROME_DRIVER_PATH = os.getenv('CHROME_DRIVER_PATH')
