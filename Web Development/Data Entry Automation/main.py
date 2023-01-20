@@ -24,6 +24,8 @@ response = requests.get(
 data = response.text
 soup = BeautifulSoup(data, "html.parser")
 
+all_link_tags = soup.select(".property-card-link")
+print(all_link_tags)
 
 # Create Spreadsheet using Google Form
 CHROME_DRIVER_PATH = os.getenv('CHROME_DRIVER_PATH')
