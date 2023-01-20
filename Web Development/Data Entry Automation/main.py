@@ -38,6 +38,8 @@ for link in all_link_tags:
 all_address_tags = soup.select(".property-card-link address")
 all_addresses = [address.get_text().split(" | ")[-1] for address in all_address_tags]
 
+all_price_tags = soup.select(".property-card div span")
+print(all_price_tags)
 
 # Create Spreadsheet using Google Form
 CHROME_DRIVER_PATH = os.getenv('CHROME_DRIVER_PATH')
