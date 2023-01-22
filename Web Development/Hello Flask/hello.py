@@ -9,6 +9,12 @@ def make_bold(function):
     return wrapper
 
 
+def make_emphasis(function):
+    def wrapper():
+        return "<em>" + function() + "</em>"
+    return wrapper
+
+
 @app.route('/')
 def hello_world():
     # Rendering HTML within the return
@@ -19,6 +25,7 @@ def hello_world():
 
 
 @make_bold
+@make_emphasis
 @app.route('/bye')
 def say_bye():
     return 'Bye!'
