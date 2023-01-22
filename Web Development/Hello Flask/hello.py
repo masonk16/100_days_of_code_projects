@@ -3,6 +3,12 @@ from flask import Flask
 app = Flask(__name__)
 
 
+def make_bold(function):
+    def wrapper():
+        return "<b>" + function() + "</b>"
+    return wrapper
+
+
 @app.route('/')
 def hello_world():
     # Rendering HTML within the return
@@ -12,6 +18,7 @@ def hello_world():
            '<img src="https://media.giphy.com/media/8GehNdh9Cj6es/giphy.gif">'
 
 
+@make_bold
 @app.route('/bye')
 def say_bye():
     return 'Bye!'
