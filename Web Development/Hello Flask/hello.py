@@ -15,6 +15,12 @@ def make_emphasis(function):
     return wrapper
 
 
+def make_underlined(function):
+    def wrapper():
+        return "<u>" + function() + "</u>"
+    return wrapper
+
+
 @app.route('/')
 def hello_world():
     # Rendering HTML within the return
@@ -26,6 +32,7 @@ def hello_world():
 
 @make_bold
 @make_emphasis
+@make_underlined
 @app.route('/bye')
 def say_bye():
     return 'Bye!'
