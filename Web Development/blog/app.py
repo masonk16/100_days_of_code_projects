@@ -19,7 +19,7 @@ def get_blog(blog_id):
     all_posts = response.json()
     requested_post = None
     for blog_post in all_posts:
-        if blog_post.id == blog_id:
+        if blog_post['id'] == blog_id:
             requested_post = blog_post
     return render_template('post.html', post=requested_post)
 
