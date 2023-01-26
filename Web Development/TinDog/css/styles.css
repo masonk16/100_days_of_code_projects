@@ -1,5 +1,5 @@
-html body * {
-    font: "Montserrat", sans-serif;
+body * {
+    font-family: "Montserrat", sans-serif;
 }
 
 #title {
@@ -14,7 +14,7 @@ div.container-fluid {
 div h1 {
     font-family: 'Montserrat', sans-serif;
     font-weight: 900;
-    size: 3rem;
+    font-size: 4rem;
     line-height: 1.5;
 }
 
@@ -49,4 +49,5 @@ div .download-btn {
 
 div .title-image {
     width: 60%;
+    transform: rotate(25deg);
 }
