@@ -103,3 +103,14 @@ section .testimonial-image {
     border-radius: 100%;
     margin: 20px;
 }
+
+#press {
+    background-color: #ef8172;
+    text-align: center;
+    padding-bottom: 3%;
+}
+
+section .press-logo {
+    width: 15%;
+    margin: 20px 20px 50px;
+}
