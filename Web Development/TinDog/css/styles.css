@@ -17,6 +17,9 @@ div h1 {
     font-size: 4rem;
     line-height: 1.5;
 }
+div p {
+    color: #8f8f8f;
+}
 
 /* Nav Bar */
 div .navbar {
@@ -53,11 +56,15 @@ div .title-image {
 }
 
 
-/* Features */
+/* Features  Section*/
+
+#features {
+    padding: 7% 15%;
+}
 
 div .feature-column {
     text-align: center;
-    padding: 3.5rem 0;
+    padding: 5%;
 }
 
 div .feature-icon {
@@ -73,10 +80,26 @@ div .feature-icon:hover {
 div .feature-name {
     font-family: "Montserrat", sans-serif;
     font-size: 1.5rem;
-    font-weight: bold;
+    font-weight: 900;
 }
 
-div .feature-text {
-    color: #8f8f8f;
-    padding: 0 3.5rem;
+/* Testimonial Section  */
+ 
+#testimonials {
+    padding: 7% 15%;
+    text-align: center;
+    background-color: #ef8172;
+    color: #ffffff;
+}
+
+section .testimonial-text {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 900;
+    font-size: 3rem;
+    line-height: 1.5;
+}
+section .testimonial-image {
+    width: 10%;
+    border-radius: 100%;
+    margin: 20px;
 }
