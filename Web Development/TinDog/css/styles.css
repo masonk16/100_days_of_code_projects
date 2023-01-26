@@ -39,3 +39,14 @@ div .nav-link {
     font-weight: light;
 }
 
+/* Download Buttons */
+
+div .download-btn {
+    margin: 5% 3% 5% 0;
+}
+
+/* Title Image */
+
+div .title-image {
+    width: 60%;
+}
