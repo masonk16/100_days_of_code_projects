@@ -51,3 +51,32 @@ div .title-image {
     width: 60%;
     transform: rotate(25deg);
 }
+
+
+/* Features */
+
+div .feature-column {
+    text-align: center;
+    padding: 3.5rem 0;
+}
+
+div .feature-icon {
+    font-size: 4rem;
+    color: #ef8172;
+    padding: 1rem 0;
+}
+
+div .feature-icon:hover {
+    color: #ff4c68;
+}
+
+div .feature-name {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+div .feature-text {
+    color: #8f8f8f;
+    padding: 0 3.5rem;
+}
