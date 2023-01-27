@@ -8,7 +8,7 @@ body * {
 }
 
 div.container-fluid {
-    padding: 3% 15% 11%;
+    padding: 3% 15% 12%;
 }
 
 div h1 {
@@ -133,4 +133,15 @@ section .press-logo {
 div .pricing-column {
     padding: 3% 2%;
     text-align: center;
+}
+
+@media (max-width: 1028px) {
+    #title {
+        text-align: center;
+    }
+
+    div .title-image {
+        position: static;
+        transform: rotate(0);
+    }
 }
