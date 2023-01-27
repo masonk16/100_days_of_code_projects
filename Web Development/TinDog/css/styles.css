@@ -118,3 +118,14 @@ section .press-logo {
     width: 15%;
     margin: 20px 20px 50px;
 }
+
+/* Pricing */
+
+#pricing {
+    padding: 100px;
+}
+
+div .pricing-column {
+    padding: 3% 2%;
+    text-align: center;
+}
