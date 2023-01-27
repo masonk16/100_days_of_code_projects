@@ -67,6 +67,7 @@ div .download-btn {
 div .title-image {
     width: 60%;
     transform: rotate(25deg);
+    position: absolute;
 }
 
 
@@ -74,6 +75,9 @@ div .title-image {
 
 #features {
     padding: 7% 15%;
+    background-color: #ffffff;
+    position: relative;
+    z-index: 1;
 }
 
 div .feature-column {
