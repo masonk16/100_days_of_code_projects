@@ -1,181 +1,187 @@
 body * {
-    font-family: "Montserrat", sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
-
-div h1, div h2, div h3, div h4, div h5, div h6{
-    font-family: "Montserrat", sans-serif;
-    font-weight: 900;
+div h1,
+div h2,
+div h3,
+div h4,
+div h5,
+div h6 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 900;
 }
 
 div p {
-    color: #8f8f8f;
-    font-weight: 500;
+  color: #8f8f8f;
+  font-weight: 500;
 }
 
 /* Containers */
 
 div.container-fluid {
-    padding: 7% 15%;
+  padding: 7% 15%;
+}
+
+/* Sections  */
+
+section.coloured-section {
+  background-color: #ff4c68;
+  color: #ffffff;
+}
+
+section.white-section {
+    background-color: #ffffff;
 }
 
 /* Headings */
 
 div .big-heading {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 900;
-    font-size: 4rem;
-    line-height: 1.5;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 900;
+  font-size: 4rem;
+  line-height: 1.5;
 }
 
 div .section-heading {
-    font-size: 3rem;
-    line-height: 1.5;
+  font-size: 3rem;
+  line-height: 1.5;
 }
 
 /* Nav Bar */
 div .navbar {
-    padding: 0 0 4.5rem;
+  padding: 0 0 4.5rem;
 }
 
 div .navbar-brand {
-    font-family: "Ubuntu", sans-serif;
-    font-size: 2.5rem;
-    font-weight: bold;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 2.5rem;
+  font-weight: bold;
 }
 
 div .nav-item {
-    padding: 0 18px;
+  padding: 0 18px;
 }
 
 div .nav-link {
-    font-size: 1.2rem;
-    font-family: "Montserrat", sans-serif;
-    font-weight: light;
+  font-size: 1.2rem;
+  font-family: "Montserrat", sans-serif;
+  font-weight: light;
 }
 
 /* Title Section */
-#title {
-    background-color: #ff4c68;
-    color: #ffffff; 
-    text-align: left;
-}
 
 #title div.container-fluid {
-    padding: 3% 15% 12%;
+  padding: 3% 15% 12%;
+  text-align: left;
 }
 
 div .title-image {
-    width: 60%;
-    transform: rotate(25deg);
-    position: absolute;
-    right: 30%;
+  width: 60%;
+  transform: rotate(25deg);
+  position: absolute;
+  right: 30%;
 }
 
 /* Download Buttons */
 
 div .download-btn {
-    margin: 5% 3% 5% 0;
+  margin: 5% 3% 5% 0;
 }
-
 
 /* Features  Section*/
 
 #features {
-    background-color: #ffffff;
-    position: relative;
-    z-index: 1;
+  position: relative;
+  z-index: 1;
 }
 
 div .feature-column {
-    text-align: center;
-    padding: 4.5%;
+  text-align: center;
+  padding: 4.5%;
 }
 
 div .feature-icon {
-    font-size: 4rem;
-    color: #ef8172;
-    padding: 1rem 0;
+  font-size: 4rem;
+  color: #ef8172;
+  padding: 1rem 0;
 }
 
 div .feature-icon:hover {
-    color: #ff4c68;
+  color: #ff4c68;
 }
 
 div .feature-name {
-    font-size: 1.5rem;
+  font-size: 1.5rem;
 }
 
 /* Testimonial Section  */
- 
+
 #testimonials {
-    text-align: center;
-    background-color: #ef8172;
-    color: #ffffff;
+  text-align: center;
+  background-color: #ef8172;
 }
 
 div .testimonial-text {
-    font-size: 3rem;
-    line-height: 1.5;
+  font-size: 3rem;
+  line-height: 1.5;
 }
 
 section .testimonial-image {
-    width: 10%;
-    border-radius: 100%;
-    margin: 20px;
+  width: 10%;
+  border-radius: 100%;
+  margin: 20px;
 }
 
 #press {
-    background-color: #ef8172;
-    text-align: center;
-    padding-bottom: 3%;
+  background-color: #ef8172;
+  text-align: center;
+  padding-bottom: 3%;
 }
 
 section .press-logo {
-    width: 15%;
-    margin: 20px 20px 50px;
+  width: 15%;
+  margin: 20px 20px 50px;
 }
 
 /* Pricing */
 
 #pricing {
-    padding: 100px;
+  padding: 100px;
 }
 
 div .price-text {
-    font-size: 3rem;
-    line-height: 1.5;
+  font-size: 3rem;
+  line-height: 1.5;
 }
 
 div .pricing-column {
-    padding: 3% 2%;
-    text-align: center;
+  padding: 3% 2%;
+  text-align: center;
 }
 
 /* Call To Action */
 
 #cta {
-    background-color: #ff4c68;
-    text-align: center;
-    color: #ffffff;
+  text-align: center;
 }
 
 /* Footer */
 
 #footer {
-    text-align: center;
+  text-align: center;
 }
 
 footer i {
-    padding: 0 3% 3%;
+  padding: 0 3% 3%;
 }
 @media (max-width: 1028px) {
-    #title {
-        text-align: center;
-    }
+  #title {
+    text-align: center;
+  }
 
-    div .title-image {
-        position: static;
-        transform: rotate(0);
-    }
+  div .title-image {
+    position: static;
+    transform: rotate(0);
+  }
 }
