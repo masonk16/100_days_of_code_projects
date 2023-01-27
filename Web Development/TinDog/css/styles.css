@@ -33,6 +33,7 @@ div h3 {
 
 div p {
     color: #8f8f8f;
+    font-weight: 500;
 }
 
 /* Nav Bar */
@@ -140,7 +141,7 @@ div .pricing-column {
 #cta {
     background-color: #ff4c68;
     text-align: center;
-    padding: 10% 10% 5%;
+    padding: 8% 10% 5%;
 }
 
 section .cta-text {
@@ -151,6 +152,16 @@ section .cta-text {
     padding: 0 15%;
 }
 
+/* Footer */
+
+#footer {
+    padding: 5% 30%;
+    text-align: center;
+}
+
+footer i {
+    padding: 3%;
+}
 @media (max-width: 1028px) {
     #title {
         text-align: center;
