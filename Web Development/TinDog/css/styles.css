@@ -13,13 +13,10 @@ div p {
     font-weight: 500;
 }
 
-#title {
-    background-color: #ff4c68;
-    color: #ffffff; 
-}
+/* Containers */
 
 div.container-fluid {
-    padding: 3% 15% 12%;
+    padding: 7% 15%;
 }
 
 /* Headings */
@@ -57,13 +54,16 @@ div .nav-link {
     font-weight: light;
 }
 
-/* Download Buttons */
-
-div .download-btn {
-    margin: 5% 3% 5% 0;
+/* Title Section */
+#title {
+    background-color: #ff4c68;
+    color: #ffffff; 
+    text-align: left;
 }
 
-/* Title Image */
+#title div.container-fluid {
+    padding: 3% 15% 12%;
+}
 
 div .title-image {
     width: 60%;
@@ -72,11 +72,16 @@ div .title-image {
     right: 30%;
 }
 
+/* Download Buttons */
+
+div .download-btn {
+    margin: 5% 3% 5% 0;
+}
+
 
 /* Features  Section*/
 
 #features {
-    padding: 7% 15%;
     background-color: #ffffff;
     position: relative;
     z-index: 1;
@@ -119,9 +124,6 @@ section .testimonial-image {
     border-radius: 100%;
     margin: 20px;
 }
-section .carousel-item {
-    padding: 7% 15%;
-}
 
 #press {
     background-color: #ef8172;
@@ -155,26 +157,17 @@ div .pricing-column {
 #cta {
     background-color: #ff4c68;
     text-align: center;
-    padding: 8% 10% 5%;
-}
-
-section .cta-text {
-    font-family: "Montserrat", sans-serif;
-    font-weight: 900;
     color: #ffffff;
-    font-size: 3rem;
-    padding: 0 15%;
 }
 
 /* Footer */
 
 #footer {
-    padding: 5% 30%;
     text-align: center;
 }
 
 footer i {
-    padding: 3%;
+    padding: 0 3% 3%;
 }
 @media (max-width: 1028px) {
     #title {
