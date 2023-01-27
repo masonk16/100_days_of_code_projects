@@ -8,7 +8,7 @@ body * {
 }
 
 div.container-fluid {
-    padding: 3% 15%;
+    padding: 3% 15% 11%;
 }
 
 div h1 {
@@ -68,6 +68,7 @@ div .title-image {
     width: 60%;
     transform: rotate(25deg);
     position: absolute;
+    right: 30%;
 }
 
 
