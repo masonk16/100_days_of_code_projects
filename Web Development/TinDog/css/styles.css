@@ -17,6 +17,20 @@ div h1 {
     font-size: 4rem;
     line-height: 1.5;
 }
+
+div h2 {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 900;
+    font-size: 3rem;
+    line-height: 1.5;
+}
+
+div h3 {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.5rem;
+    font-weight: 900;
+}
+
 div p {
     color: #8f8f8f;
 }
@@ -77,12 +91,6 @@ div .feature-icon:hover {
     color: #ff4c68;
 }
 
-div .feature-name {
-    font-family: "Montserrat", sans-serif;
-    font-size: 1.5rem;
-    font-weight: 900;
-}
-
 /* Testimonial Section  */
  
 #testimonials {
@@ -91,12 +99,6 @@ div .feature-name {
     color: #ffffff;
 }
 
-section .testimonial-text {
-    font-family: "Montserrat", sans-serif;
-    font-weight: 900;
-    font-size: 3rem;
-    line-height: 1.5;
-}
 section .testimonial-image {
     width: 10%;
     border-radius: 100%;
