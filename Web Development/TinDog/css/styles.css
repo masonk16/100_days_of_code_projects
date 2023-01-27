@@ -135,6 +135,22 @@ div .pricing-column {
     text-align: center;
 }
 
+/* Call To Action */
+
+#cta {
+    background-color: #ff4c68;
+    text-align: center;
+    padding: 10% 10% 5%;
+}
+
+section .cta-text {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 900;
+    color: #ffffff;
+    font-size: 3rem;
+    padding: 0 15%;
+}
+
 @media (max-width: 1028px) {
     #title {
         text-align: center;
