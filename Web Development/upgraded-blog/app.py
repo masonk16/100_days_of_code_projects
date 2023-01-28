@@ -1,6 +1,11 @@
 from flask import Flask, render_template
+import requests
 
 app = Flask(__name__)
+
+posts_url = 'https://api.npoint.io/2306a432815ce8b775f1'
+response = requests.get(posts_url)
+posts_data = response.json()
 
 
 @app.route('/')
