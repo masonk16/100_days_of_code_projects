@@ -14,6 +14,15 @@ def index():
     return render_template('index.html', posts=posts)
 
 
+@app.route('/post/<int:post_id>')
+def get_post(post_id):
+    for blog_post in posts_data:
+        if blog_post['id'] == post_id:
+            post = blog_post
+    return render_template('post.html', post=post)
+
+
+
 @app.route('/about')
 def about():
     return render_template('about.html')
