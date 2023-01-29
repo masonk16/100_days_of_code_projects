@@ -3,8 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
-    <h1>It works!</h1>
+    <div class="formbold-main-wrapper">
+  <!-- Author: FormBold Team -->
+  <!-- Learn More: https://formbold.com -->
+  <div class="formbold-form-wrapper">
+    <div class="formbold-form-title">
+        <h3>Subscribe Now to Get Our Latest Offers!</h3>
+        <p>There are many variations of passages of Lorem Ipsum available but the majority have.</p>
+    </div>
+    <form action="https://formbold.com/s/FORM_ID" method="POST">
+        <input
+          type="email"
+          name="email"
+          id="email"
+          placeholder="Enter your email address"
+          class="formbold-form-input"
+        />
+
+        <button class="formbold-btn">
+            Subscribe Now
+        </button>
+    </form>
+  </div>
+</div>
 </body>
 </html>
