@@ -31,7 +31,6 @@ def get_post(post_id):
     return render_template('post.html', post=requested_post)
 
 
-
 @app.route('/about')
 def about():
     return render_template('about.html')
@@ -40,8 +39,17 @@ def about():
 @app.route('/contact',  methods=["GET", "POST"])
 def contact():
     if request.method == 'POST':
-        with smtplib.SMTP()
-        return render_template('form-success.html')
+        name = request.form['name']
+        email = request.form['email']
+        phone = request.form['phone']
+        message = request.form['message']
+        email_message = f"Subject:New Message\n\nName: {name}\nEmail: {email}\nPhone: {phone}\nMessage:{message}"
+        with smtplib.SMTP("smtp.gmail.com") as connection:
+            connection.starttls()
+            connection.login(FROM_EMAIL, FROM_PASSWORD)
+            connection.sendmail(FROM_EMAIL, TO_EMAIL, email_message)
+
+            return render_template('form-success.html')
     return render_template('contact.html')
 
 
