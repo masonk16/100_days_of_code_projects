@@ -14,7 +14,7 @@
         <h3>Subscribe Now to Get Our Latest Offers!</h3>
         <p>There are many variations of passages of Lorem Ipsum available but the majority have.</p>
     </div>
-    <form action="/login" method="POST">
+    <form action="{{ url_for('receive_data') }}" method="POST">
         <input
           type="text"
           name="name"
@@ -29,8 +29,8 @@
           placeholder="Password"
           class="formbold-form-input"
         />
-        <button class="formbold-btn">
-            Subscribe Now
+        <button class="formbold-btn" type="submit">
+            OK
         </button>
     </form>
   </div>
