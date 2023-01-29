@@ -3,8 +3,6 @@ from datetime import datetime
 import random
 import smtplib
 
-EMAIL = "grey.pafotisevheni@yahoo.com"
-PASSWORD = "wllaqeaotxnaitmu"
 
 # Obtain todays date
 today = (datetime.now().month, datetime.now().day)
