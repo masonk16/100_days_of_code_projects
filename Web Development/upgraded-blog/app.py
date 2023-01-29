@@ -1,11 +1,19 @@
+import os
+
 from flask import Flask, render_template, request
 import requests
+import smtplib
 
 app = Flask(__name__)
 
 posts_url = 'https://api.npoint.io/2306a432815ce8b775f1'
 response = requests.get(posts_url)
 posts_data = response.json()
+
+
+FROM_EMAIL = os.getenv('FROM_EMAIL')
+FROM_PASSWORD = os.getenv('FROM_PASSWORD')
+TO_EMAIL = os.getenv('TO_EMAIL')
 
 
 @app.route('/')
@@ -31,15 +39,10 @@ def about():
 
 @app.route('/contact',  methods=["GET", "POST"])
 def contact():
-    if request.method == 'GET':
-        return render_template('contact.html')
-    elif request.method == 'POST':
+    if request.method == 'POST':
+        with smtplib.SMTP()
         return render_template('form-success.html')
-
-
-# @app.route('/form-success', methods=["POST"])
-# def receive_data():
-
+    return render_template('contact.html')
 
 
 if __name__ == '__main__':
