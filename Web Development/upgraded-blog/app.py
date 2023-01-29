@@ -43,14 +43,17 @@ def contact():
         email = request.form['email']
         phone = request.form['phone']
         message = request.form['message']
-        email_message = f"Subject:New Message\n\nName: {name}\nEmail: {email}\nPhone: {phone}\nMessage:{message}"
-        with smtplib.SMTP("smtp.gmail.com") as connection:
-            connection.starttls()
-            connection.login(FROM_EMAIL, FROM_PASSWORD)
-            connection.sendmail(FROM_EMAIL, TO_EMAIL, email_message)
-
-            return render_template('form-success.html')
+        send_email(name=name, email=email, phone=phone, message=message)
+        return render_template('form-success.html')
     return render_template('contact.html')
+
+
+def send_email(name, email, phone, message):
+    email_message = f"Subject:New Message\n\nName: {name}\nEmail: {email}\nPhone: {phone}\nMessage:{message}"
+    with smtplib.SMTP("smtp.gmail.com", 587) as connection:
+        connection.starttls()
+        connection.login(FROM_EMAIL, FROM_PASSWORD)
+        connection.sendmail(FROM_EMAIL, TO_EMAIL, email_message)
 
 
 if __name__ == '__main__':
