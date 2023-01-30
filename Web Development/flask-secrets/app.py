@@ -3,12 +3,14 @@ from flask_wtf import FlaskForm
 from flask_wtf.csrf import CSRFProtect
 from wtforms import EmailField, PasswordField, SubmitField
 from wtforms.validators import DataRequired, Email, Length
+from flask_bootstrap import Bootstrap
 
 app = Flask(__name__)
 
 app.secret_key = 'pajmheckxbinpgsmgzgeqzawvubkyqowifgbupjetxwhxcmwrbhrqnkfzjwdhyas'
 csrf = CSRFProtect(app)
 
+bootstrap = Bootstrap(app)
 
 class LoginForm(FlaskForm):
     email = EmailField(label='Email', validators=[DataRequired(), Email()])
