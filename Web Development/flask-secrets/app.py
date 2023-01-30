@@ -1,7 +1,8 @@
 from flask import Flask, render_template
 from flask_wtf import FlaskForm
 from flask_wtf.csrf import CSRFProtect
-from wtforms import EmailField, PasswordField
+from wtforms import EmailField, PasswordField, SubmitField
+from wtforms.validators import DataRequired
 
 app = Flask(__name__)
 
@@ -10,8 +11,9 @@ csrf = CSRFProtect(app)
 
 
 class LoginForm(FlaskForm):
-    email = EmailField('email')
-    password = PasswordField('password')
+    email = EmailField(label='Email', validators=[DataRequired()])
+    password = PasswordField(label='Password', validators=[DataRequired()])
+    submit = SubmitField(label='Login')
 
 
 @app.route("/")
