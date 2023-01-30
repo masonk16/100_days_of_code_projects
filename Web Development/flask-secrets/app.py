@@ -1,6 +1,14 @@
 from flask import Flask, render_template
+from flask_wtf import FlaskForm
+from wtforms import EmailField, PasswordField
+from wtforms.validators import Email
 
 app = Flask(__name__)
+
+
+class LoginForm(FlaskForm):
+    email = EmailField('email', validators=[Email()])
+    password = PasswordField('password')
 
 
 @app.route("/")
