@@ -21,7 +21,7 @@
 	  <tr>
 		  	{% for item in row %}
 				{% if item[0:4] == "http" %}
-				<td><a href="{{ item }}">Maps Link</a></td>
+				<td><a href="{{ item }}" target="_blank">Maps Link</a></td>
 				{% else %}
 				<td>{{ item }}</td>
 				{% endif %}
