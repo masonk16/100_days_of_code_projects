@@ -63,10 +63,10 @@ db.create_all()
 # db.session.commit()
 
 
-@app.route("/")
+@app.route('/')
 def home():
     all_books = db.session.query(Books).all()
-    return render_template("index.html", books=all_books)
+    return render_template('index.html', books=all_books)
 
 
 @app.route('/add', methods=['GET', 'POST'])
@@ -75,23 +75,34 @@ def add():
         new_book = Books(title=request.form['title'], author=request.form['author'], rating=request.form['rating'])
         db.session.add(new_book)
         db.session.commit()
-        return redirect(url_for("home"))
+        return redirect(url_for('home'))
 
-    return render_template("add.html")
+    return render_template('add.html')
 
 
-@app.route("/edit", methods=["GET", "POST"])
+@app.route('/edit', methods=['GET', 'POST'])
 def edit():
     if request.method == "POST":
-        #UPDATE RECORD
-        book_id = request.form["id"]
+        # UPDATE RECORD
+        book_id = request.form['id']
         book_to_update = Books.query.get(book_id)
-        book_to_update.rating = request.form["rating"]
+        book_to_update.rating = request.form['rating']
         db.session.commit()
         return redirect(url_for('home'))
     book_id = request.args.get('id')
     book_selected = Books.query.get(book_id)
-    return render_template("edit-rating.html", book=book_selected)
+    return render_template('edit-rating.html', book=book_selected)
+
+
+@app.route("/delete")
+def delete_book():
+    book_id = request.args.get('id')
+
+    # DELETE A RECORD BY ID
+    book_to_delete = Books.query.get(book_id)
+    db.session.delete(book_to_delete)
+    db.session.commit()
+    return redirect(url_for('home'))
 
 
 if __name__ == "__main__":
