@@ -61,7 +61,7 @@ def get_random_cafe():
     #     "coffee_price": random_cafe.coffee_price,
     # })
 
-@app.route('/all')
+@app.route('/all', methods=['GET'])
 def get_all_cafes():
     """
     Gets all cafes from database
@@ -69,6 +69,21 @@ def get_all_cafes():
     """
     cafes = db.session.query(Cafe).all()
     return jsonify(cafes=[cafe.to_dict() for cafe in cafes])
+
+
+@app.route('/search', methods=['GET'])
+def get_cafe_by_loc():
+    """
+    Gets a cafe from a specific location using the loc parameter
+    :return: JSON object
+    """
+    query_location = request.args.get("loc")
+    cafe = db.session.query(Cafe).filter_by(location=query_location).first()
+    if cafe:
+        return jsonify(cafe=cafe.to_dict())
+    else:
+        return jsonify(error={"Not Found": "Sorry, we don't have a cafe at that location."})
+
 
 # HTTP POST - Create Record
 
