@@ -39,6 +39,10 @@ def home():
 # HTTP GET - Read Record
 @app.route('/random', methods=['GET'])
 def get_random_cafe():
+    """
+    Gets a random cafe from the database
+    :return: JSON
+    """
     cafes = db.session.query(Cafe).all()
     random_cafe = random.choice(cafes)
     # Simply convert the random_cafe data record to a dictionary of key-value pairs.
@@ -56,6 +60,15 @@ def get_random_cafe():
     #     "can_take_calls": random_cafe.can_take_calls,
     #     "coffee_price": random_cafe.coffee_price,
     # })
+
+@app.route('/all')
+def get_all_cafes():
+    """
+    Gets all cafes from database
+    :return: List of JSON objects
+    """
+    cafes = db.session.query(Cafe).all()
+    return jsonify(cafes=[cafe.to_dict() for cafe in cafes])
 
 # HTTP POST - Create Record
 
