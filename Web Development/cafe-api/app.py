@@ -88,6 +88,10 @@ def get_cafe_by_loc():
 # HTTP POST - Create Record
 @app.route('/add', methods=['POST'])
 def add_new_cafe():
+    """
+    Creates a new cafe in database
+    :return: HTTP response
+    """
     new_cafe = Cafe(
         name=request.form.get("name"),
         map_url=request.form.get("map_url"),
@@ -104,7 +108,23 @@ def add_new_cafe():
     db.session.commit()
     return jsonify(response={"success": "Successfully added the new cafe."})
 
+
 # HTTP PUT/PATCH - Update Record
+@app.route('/update-price/<int:cafe_id>', methods=['PATCH'])
+def patch_new_price(cafe_id):
+    """
+    Updates the coffee_price for a specified cafe.
+    :param cafe_id: ID of cafe to be updated.
+    :return: HTTP response
+    """
+    new_price = request.args.get("new_price")
+    cafe = db.session.query(Cafe).get(cafe_id)
+    if cafe:
+        cafe.coffee_price = new_price
+        db.session.commit()
+        return jsonify(response={"success": "Successfully updated the price."})
+    else:
+        return jsonify(error={"Not Found": "Sorry a cafe with that id was not found in the database."})
 
 # HTTP DELETE - Delete Record
 
