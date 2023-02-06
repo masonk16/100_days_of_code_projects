@@ -68,11 +68,17 @@ def login():
         email = request.form.get('email')
         password = request.form.get('password')
 
-        # Find user by email entered.
         user = User.query.filter_by(email=email).first()
-
-        # Check stored password hash against entered password hashed.
-        if check_password_hash(user.password, password):
+        # Email doesn't exist
+        if not user:
+            flash("That email does not exist, please try again.")
+            return redirect(url_for('login'))
+        # Password incorrect
+        elif not check_password_hash(user.password, password):
+            flash('Password incorrect, please try again.')
+            return redirect(url_for('login'))
+        # Email exists and password correct
+        else:
             login_user(user)
             return redirect(url_for('secrets'))
 
