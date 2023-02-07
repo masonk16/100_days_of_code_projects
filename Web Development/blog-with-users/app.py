@@ -150,10 +150,11 @@ def logout():
     return redirect(url_for('get_all_posts'))
 
 
-@app.route("/post/<int:post_id>")
+@app.route("/post/<int:post_id>", methods=['GET', 'POST'])
 def show_post(post_id):
+    form = CommentForm()
     requested_post = BlogPost.query.get(post_id)
-    return render_template("post.html", post=requested_post)
+    return render_template("post.html", post=requested_post, form=form)
 
 
 @app.route("/about")
