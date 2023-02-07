@@ -133,6 +133,7 @@ def show_post(post_id):
 
 @app.route("/about")
 def about():
+    logout_user()
     return render_template("about.html")
 
 
